@@ -102,12 +102,9 @@
             this.chkF2ZJ = new System.Windows.Forms.CheckBox();
             this.chkF2HP = new System.Windows.Forms.CheckBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.lblRecordCount = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtVol = new System.Windows.Forms.TextBox();
+            this.chkVol = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -842,69 +839,41 @@
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel8.Controls.Add(this.textBox1);
-            this.panel8.Controls.Add(this.label23);
-            this.panel8.Controls.Add(this.label21);
+            this.panel8.Controls.Add(this.chkVol);
+            this.panel8.Controls.Add(this.txtVol);
             this.panel8.Controls.Add(this.label22);
-            this.panel8.Controls.Add(this.lblRecordCount);
-            this.panel8.Controls.Add(this.button1);
             this.panel8.Location = new System.Drawing.Point(317, 144);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(123, 192);
             this.panel8.TabIndex = 27;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(8, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 19);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label23.Location = new System.Drawing.Point(81, 136);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(33, 12);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "ecord";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 136);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(68, 12);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "Ctrl+Shift+R";
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(42, 9);
+            this.label22.Location = new System.Drawing.Point(8, 9);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(65, 12);
+            this.label22.Size = new System.Drawing.Size(101, 12);
             this.label22.TabIndex = 2;
-            this.label22.Text = "个点已记录";
+            this.label22.Text = "触发点击音量下限";
             // 
-            // lblRecordCount
+            // txtVol
             // 
-            this.lblRecordCount.AutoSize = true;
-            this.lblRecordCount.Location = new System.Drawing.Point(10, 9);
-            this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(11, 12);
-            this.lblRecordCount.TabIndex = 1;
-            this.lblRecordCount.Text = "0";
+            this.txtVol.Location = new System.Drawing.Point(60, 32);
+            this.txtVol.Name = "txtVol";
+            this.txtVol.Size = new System.Drawing.Size(47, 19);
+            this.txtVol.TabIndex = 3;
+            this.txtVol.Text = "0.05";
+            this.txtVol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button1
+            // chkVol
             // 
-            this.button1.Location = new System.Drawing.Point(64, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
+            this.chkVol.AutoSize = true;
+            this.chkVol.Location = new System.Drawing.Point(10, 34);
+            this.chkVol.Name = "chkVol";
+            this.chkVol.Size = new System.Drawing.Size(48, 16);
+            this.chkVol.TabIndex = 25;
+            this.chkVol.Text = "有效";
+            this.chkVol.UseVisualStyleBackColor = true;
             // 
             // PPClicker
             // 
@@ -1036,12 +1005,9 @@
         private System.Windows.Forms.RadioButton rbClickR;
         private System.Windows.Forms.RadioButton rbClickL;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label lblRecordCount;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox chkVol;
+        private System.Windows.Forms.TextBox txtVol;
     }
 }
 

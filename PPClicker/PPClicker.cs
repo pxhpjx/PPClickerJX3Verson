@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Threading;
 using System.Collections.Generic;
+using NAudio.CoreAudioApi;
+using System.Linq;
 
 namespace PPClicker
 {
@@ -164,10 +166,10 @@ namespace PPClicker
                         case 111:
                             DefensivePositionControl();
                             break;
-                        case 112:
-                            RecordedPoints.Add(Control.MousePosition);
-                            lblRecordCount.Text = RecordedPoints.Count.ToString();
-                            break;
+                        //case 112:
+                        //    RecordedPoints.Add(Control.MousePosition);
+                        //    lblRecordCount.Text = RecordedPoints.Count.ToString();
+                        //    break;
                         case 113:
                             MovePress();
                             break;
@@ -233,6 +235,11 @@ namespace PPClicker
         //Clicker
         private void TimerClick_Elapsed(object source, ElapsedEventArgs e)
         {
+            if (chkVol.Checked && !CheckVol())
+            {
+                return;
+            }
+
             if (rbClickL.Checked)
             {
                 mouse_event(MouseEventFlag.LeftDown, 0, 0, 0, UIntPtr.Zero);
@@ -609,6 +616,26 @@ namespace PPClicker
             }
             i++;
         }
+
+
+        bool CheckVol()
+        {
+            return GetVoicePeakValue() > Double.Parse(txtVol.Text);
+        }
+
+        public float GetVoicePeakValue()
+        {
+            var enumerator = new MMDeviceEnumerator();
+            var CaptureDevices = enumerator.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active).ToArray();
+            var selectedDevice = CaptureDevices.FirstOrDefault(c => c.AudioMeterInformation.MasterPeakValue > 0);
+
+
+            //var defaultDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Capture, Role.Console);
+            //var selectedDevice = CaptureDevices.FirstOrDefault(c => c.ID == defaultDevice.ID);
+
+            return selectedDevice == null ? 0 : selectedDevice.AudioMeterInformation.MasterPeakValue;
+        }
+
 
         #endregion
 
